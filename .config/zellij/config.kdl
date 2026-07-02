@@ -307,3 +307,4 @@ theme "ansi"
 default_mode "normal"
 pane_frames false
 show_startup_tips false
+scroll_buffer_size 20000
