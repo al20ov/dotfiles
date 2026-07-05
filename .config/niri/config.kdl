@@ -48,6 +48,7 @@ layout {
     }
 }
 
+spawn-at-startup "pipewire"
 spawn-sh-at-startup "foot --server"
 
 spawn-sh-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
@@ -74,19 +75,19 @@ binds {
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "pidof fuzzel && pkill fuzzel || fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: gtklock" { spawn-sh "niri msg action power-off-monitors"; } // TODO: fix this to actually call gtklock
     Super+Alt+N { spawn-sh "pidof wlsunset && pkill wlsunset || wlsunset -T 5600"; }
+    Super+B { spawn "helium"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "brightnessctl set +10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl set -n1 10%-"; }
 
     Mod+O repeat=false { toggle-overview; }
 
