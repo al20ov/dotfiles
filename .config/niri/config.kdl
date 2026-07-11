@@ -185,3 +185,7 @@ binds {
 cursor {
     xcursor-theme "Adwaita"
 }
+
+overview {
+    zoom 0.75
+}
