@@ -16,7 +16,7 @@ input {
     }
 
     mouse {
-        // accel-speed 0.2
+        accel-speed -0.2
         accel-profile "flat"
     }
 }
@@ -187,5 +187,5 @@ cursor {
 }
 
 overview {
-    zoom 0.75
+    zoom 0.67
 }
