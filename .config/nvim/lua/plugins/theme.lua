@@ -4,10 +4,11 @@ end
 
 return {
     {
-        "vimcolorschemes/olive-crt.nvim",
+        -- "vimcolorschemes/olive-crt.nvim",
+        "ogswag/valve-olive.nvim",
         config = function()
-            vim.cmd.colorscheme "olive-crt"
-            enable_transparency()
+            vim.cmd.colorscheme "valve-olive"
+            -- enable_transparency()
         end
     },
     {
