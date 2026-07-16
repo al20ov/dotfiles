@@ -16,9 +16,11 @@ input {
     }
 
     mouse {
-        accel-speed -0.2
+        accel-speed 0.2
         accel-profile "flat"
     }
+
+    disable-power-key-handling // Leave it to elogind
 }
 
 layout {
@@ -189,3 +191,5 @@ cursor {
 overview {
     zoom 0.67
 }
+
+include "inputs.kdl" // Include at the end so it overrides whatever is already in this file
