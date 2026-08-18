@@ -1,7 +1,10 @@
 layout {
     pane
+ //    pane size=8 borderless=true {
+ //        plugin location="file:/home/nico/Projects/zellij-cstatus/builddir/zellij-cstatus.wasm"
+ //    }
     pane size=1 borderless=true {
-        plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+        plugin location="https://github.com/dj95/zjstatus/releases/download/v0.24.0/zjstatus.wasm" {
             format_left   "{mode} {notifications}"
             format_center "{tabs}"
             format_right  "{datetime}"
@@ -19,10 +22,6 @@ layout {
             datetime        "#[fg=#6C7086,bold] {format} "
             datetime_format "%I:%M %p"
             datetime_timezone "Europe/Paris"
-
-            notification_format_unread           "#[fg=#89B4FA,bg=#181825,blink]  #[fg=#89B4FA,bg=#181825] {message} "
-            notification_format_no_notifications ""
-            notification_show_interval           "10"
         }
     }
 }

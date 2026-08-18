@@ -1,4 +1,103 @@
-require("config.options")
-require("config.keybinds")
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-require("config.lazy")
+vim.opt.list = true
+vim.opt.listchars:append('trail:⋅')
+vim.opt.listchars:append('space:⋅')
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.autoread = true
+
+vim.opt.signcolumn = 'yes'
+
+vim.pack.add({
+    'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/mason-org/mason.nvim',
+    'https://github.com/mason-org/mason-lspconfig.nvim',
+    'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
+    'https://github.com/stevearc/oil.nvim',
+    'https://github.com/sainnhe/sonokai',
+    'https://github.com/lukas-reineke/indent-blankline.nvim',
+    'https://github.com/nvim-mini/mini.pairs',
+    'https://github.com/nvim-tree/nvim-web-devicons',
+    'https://github.com/nvim-lualine/lualine.nvim',
+    {
+        src = 'https://github.com/saghen/blink.cmp',
+        version = 'v1.10.2'
+    },
+})
+
+require('oil').setup()
+require('ibl').setup()
+require('mini.pairs').setup()
+
+-- LSP config
+require('mason').setup()
+require('mason-lspconfig').setup()
+require('mason-tool-installer').setup({
+    ensure_installed = {
+        'lua_ls',
+        'stylua',
+        'clangd',
+        'terraform-ls',
+        'tflint',
+    }
+})
+
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                globals = {
+                    'vim',
+                    'require',
+                }
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file('', true)
+            },
+            telemetry = {
+                enable = false
+            }
+        }
+    }
+})
+-- END LSP config
+
+-- autocomplete config
+require('blink.cmp').setup({
+    keymap = { preset = 'super-tab' },
+    sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' }
+    },
+    fuzzy = {
+        implementation = "prefer_rust_with_warning"
+    },
+    signature = { enabled = true }
+})
+-- END autocomplete config
+
+-- lualine config
+require('lualine').setup({
+    options = {
+        theme = 'auto',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+    }
+})
+vim.o.showmode = false -- hide mode status in bottom bar
+-- END lualine config
+
+vim.cmd.colorscheme('sonokai')
