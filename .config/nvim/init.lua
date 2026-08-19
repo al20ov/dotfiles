@@ -19,6 +19,8 @@ vim.opt.autoread = true
 
 vim.opt.signcolumn = 'yes'
 
+vim.opt.scrolloff = 8
+
 vim.pack.add({
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/mason-org/mason.nvim',
@@ -34,6 +36,9 @@ vim.pack.add({
         src = 'https://github.com/saghen/blink.cmp',
         version = 'v1.10.2'
     },
+    'https://github.com/nvim-lua/plenary.nvim',
+    'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
+    'https://github.com/nvim-telescope/telescope.nvim',
 })
 
 require('oil').setup()
@@ -101,3 +106,9 @@ vim.o.showmode = false -- hide mode status in bottom bar
 -- END lualine config
 
 vim.cmd.colorscheme('sonokai')
+
+-- telescope keybinds (leader here is '\', the default)
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<Leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<Leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+-- END telescope keybinds
