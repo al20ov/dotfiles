@@ -15,7 +15,7 @@ $character"""
 add_newline = false
 
 [directory]
-style = "bold blue"
+style = "bold cyan"
 
 [character]
 success_symbol = '[\$](purple)'
