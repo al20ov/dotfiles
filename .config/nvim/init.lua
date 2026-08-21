@@ -21,6 +21,9 @@ vim.opt.signcolumn = 'yes'
 
 vim.opt.scrolloff = 8
 
+-- set leader key to space
+vim.g.mapleader = ' '
+
 vim.pack.add({
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/mason-org/mason.nvim',
@@ -52,9 +55,14 @@ require('mason-tool-installer').setup({
     ensure_installed = {
         'lua_ls',
         'stylua',
-        'clangd',
-        'terraform-ls',
-        'tflint',
+    }
+})
+
+vim.lsp.config('terraformls', {
+    init_options = {
+        indexing = {
+            ignorePaths = { '.terraform' }
+        }
     }
 })
 
@@ -88,9 +96,9 @@ require('blink.cmp').setup({
         default = { 'lsp', 'path', 'snippets', 'buffer' }
     },
     fuzzy = {
-        implementation = "prefer_rust_with_warning"
+        implementation = "rust"
     },
-    signature = { enabled = true }
+    signature = { enabled = false }
 })
 -- END autocomplete config
 
@@ -107,8 +115,13 @@ vim.o.showmode = false -- hide mode status in bottom bar
 
 vim.cmd.colorscheme('sonokai')
 
--- telescope keybinds (leader here is '\', the default)
+-- telescope keybinds (leader here is the spacebar)
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<Leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<Leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, { desc = 'Open diagnostic float' })
 -- END telescope keybinds
+
+vim.diagnostic.config({
+    update_in_insert = false
+})
