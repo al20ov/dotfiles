@@ -52,11 +52,17 @@ require('mason-tool-installer').setup({
     ensure_installed = {
         'lua_ls',
         'stylua',
-        'clangd',
-        'terraform-ls',
-        'tflint',
     }
 })
+
+vim.lsp.config('terraformls', {
+    init_options = {
+        indexing = {
+            ignorePaths = { '.terraform' }
+        }
+    }
+})
+vim.lsp.enable('terraformls')
 
 vim.lsp.config('lua_ls', {
     settings = {
@@ -88,9 +94,9 @@ require('blink.cmp').setup({
         default = { 'lsp', 'path', 'snippets', 'buffer' }
     },
     fuzzy = {
-        implementation = "prefer_rust_with_warning"
+        implementation = "rust"
     },
-    signature = { enabled = true }
+    signature = { enabled = false }
 })
 -- END autocomplete config
 
@@ -112,3 +118,7 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<Leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<Leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 -- END telescope keybinds
+
+vim.diagnostic.config({
+    update_in_insert = false
+})
