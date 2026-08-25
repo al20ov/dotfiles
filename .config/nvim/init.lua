@@ -98,7 +98,7 @@ require('blink.cmp').setup({
     fuzzy = {
         implementation = "rust"
     },
-    signature = { enabled = false }
+    signature = { enabled = true }
 })
 -- END autocomplete config
 
