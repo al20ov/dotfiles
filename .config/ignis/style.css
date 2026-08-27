@@ -1,0 +1,41 @@
+:root {
+    --bg-color: #333333;
+    --trough-bg-color: #444444;
+    --fg-color: #eeeeee;
+}
+
+.volume-osd-revealerwindow {
+    /*
+     * DO NOT put a background here otherwise it won't be part of the animation
+     * and look awkward
+     */
+
+    border-radius: 64pt;
+    margin-bottom: 12pt;
+}
+
+.volume-osd-container {
+    background-color: var(--bg-color);
+    padding: 4pt 10pt;
+}
+
+.volume-osd-scale {
+    min-width: 12rem;
+}
+
+.volume-osd-scale trough {
+    all: unset;
+    background-color: var(--trough-bg-color);
+    min-height: 6pt;
+    border-radius: 3pt;
+}
+
+.volume-osd-scale highlight {
+    all: unset;
+    background-color: var(--fg-color);
+    border-radius: 3pt;
+}
+
+.volume-osd-scale slider {
+    all: unset;
+}
