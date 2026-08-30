@@ -1,7 +1,7 @@
 :root {
     --bg-color: #333333;
     --trough-bg-color: #444444;
-    --fg-color: #eeeeee;
+    --fg-color: #dddddd;
 }
 
 .volume-osd-revealerwindow {
@@ -16,7 +16,11 @@
 
 .volume-osd-container {
     background-color: var(--bg-color);
-    padding: 4pt 10pt;
+    padding: 2pt 6pt;
+}
+
+.volume-osd-container image {
+    padding-left: 4pt;
 }
 
 .volume-osd-scale {

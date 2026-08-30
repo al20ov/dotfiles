@@ -13,7 +13,7 @@ class VolumeOSD(widgets.RevealerWindow):
                 css_classes=["volume-osd-container"],
                 child=[
                     widgets.Icon(
-                        pixel_size=24, image=audio_service.speaker.bind("icon_name")
+                        pixel_size=20, image=audio_service.speaker.bind("icon_name")
                     ),
                     widgets.Scale(
                         value=audio_service.speaker.bind_many(
