@@ -80,6 +80,7 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: gtklock" { spawn-sh "niri msg action power-off-monitors"; } // TODO: fix this to actually call gtklock
     Super+Alt+N { spawn-sh "pidof wlsunset && pkill wlsunset || wlsunset -T 5600"; }
     Super+B { spawn "helium"; }
+    Super+I hotkey-overlay-title="Toggle info bar visibility" { spawn-sh "qs ipc call bar toggle"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
