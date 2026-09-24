@@ -77,7 +77,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "pidof fuzzel && pkill fuzzel || fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: gtklock" { spawn-sh "niri msg action power-off-monitors"; } // TODO: fix this to actually call gtklock
-    Super+Alt+N { spawn-sh "pidof wlsunset && pkill wlsunset || wlsunset -T 5600"; }
+    Super+Alt+N { spawn-sh "pidof wlsunset && pkill wlsunset || wlsunset -t 5600 -T 5601"; }
     Super+B { spawn "helium"; }
     Super+I hotkey-overlay-title="Toggle info bar visibility" { spawn-sh "qs ipc call bar toggle"; }
 
