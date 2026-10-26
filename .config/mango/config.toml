@@ -1,0 +1,4 @@
+[bind.default]
+
+"SUPER+Return" = "spawn,foot"
+"SUPER+Q" = "killclient"
