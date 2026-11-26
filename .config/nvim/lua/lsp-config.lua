@@ -44,3 +44,6 @@ vim.lsp.enable('gopls')
 
 -- Zig
 vim.lsp.enable('zls')
+
+-- Bash
+vim.lsp.enable('bashls')
