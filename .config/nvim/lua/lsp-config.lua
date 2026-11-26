@@ -41,3 +41,6 @@ vim.lsp.enable('terraformls')
 
 -- Go
 vim.lsp.enable('gopls')
+
+-- Zig
+vim.lsp.enable('zls')
