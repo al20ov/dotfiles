@@ -85,9 +85,9 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
 
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl position 5-"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl position 5+"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "pidof spotify && playerctl -p spotify play-pause || playerctl play-pause"; } // For some reason, spotify doesn't take priority over the browser so need to force it
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "pidof spotify && playerctl -p spotify previous || playerctl position 5-"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "pidof spotify && playerctl -p spotify next || playerctl position 5+"; }
 
     XF86MonBrightnessUp allow-when-locked=true { spawn-sh "brightnessctl set +10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl set -n1 10%-"; }
