@@ -47,3 +47,11 @@ vim.lsp.enable('zls')
 
 -- Bash
 vim.lsp.enable('bashls')
+
+-- Astro
+-- npm i -g @astrojs/language-server
+vim.lsp.enable('astro')
+
+-- TailwindCSS
+-- npm i -g @tailwindcss/language-server
+vim.lsp.enable('tailwindcss')
