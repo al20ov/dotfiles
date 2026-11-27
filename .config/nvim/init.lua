@@ -74,7 +74,6 @@ require('lualine').setup({
         section_separators = { left = '', right = '' },
     }
 })
-vim.o.showmode = false
 vim.o.cmdheight = 0
 -- END lualine config
 
