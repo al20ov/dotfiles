@@ -80,7 +80,7 @@ vim.o.cmdheight = 0
 -- telescope keybinds
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<Leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<Leader>fg', builtin.find_files, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<Leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, { desc = 'Open diagnostic float' })
 -- END telescope keybinds
 
