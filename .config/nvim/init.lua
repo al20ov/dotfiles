@@ -59,6 +59,7 @@ require('mini.pairs').setup()
 -- LSP stuff
 -- points to lua/lsp-config.lua
 require('lsp-config')
+vim.lsp.log.set_level(vim.log.levels.OFF)
 -- END LSP stuff
 
 -- color scheme config
